@@ -1,6 +1,6 @@
 <br class="Apple-interchange-newline"/>
 <h1 align="center">
-  SetHome
+  <a href="https://www.spigotmc.org/resources/☄%EF%B8%8F-sethome-☄%EF%B8%8F-1-8-to-1-18.100287/">SetHome</a>
 </h1>
 
 <h4 align="center">A lightweight plugin for players to set their home.</h4>
