@@ -21,7 +21,6 @@ public final class Core extends JavaPlugin {
     private final FileConfiguration config;
     private final SetHomeUtils utils;
 
-
     public Core() {
         homesYaml = YamlConfiguration.loadConfiguration( homesFile );
         config = getConfig();
