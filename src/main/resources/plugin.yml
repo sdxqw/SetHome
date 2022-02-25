@@ -1,0 +1,11 @@
+name: SetHome
+version: '${project.version}'
+main: org.xnotro.sethome.Core
+API: 1.8
+authors: [ xnotro ]
+description: Allows you to set home anywhere and the world to get back to that same location!
+commands:
+  sethome:
+    description: set the home
+  home:
+    description: send player to home
