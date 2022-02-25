@@ -31,7 +31,7 @@ public final class Core extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(command.getName().equalsIgnoreCase( "sethome" )) {
             if (!(sender instanceof Player)) {
-                getLogger().log( Level.WARNING, "> you can't use this command on console!." );
+                logger.log( Level.WARNING, "> you can't use this command on console!." );
                 return true;
             }
 
@@ -44,7 +44,7 @@ public final class Core extends JavaPlugin {
 
         else if (command.getName().equalsIgnoreCase( "home" )) {
             if (!(sender instanceof Player)) {
-                getLogger().log( Level.WARNING, "> you can't use this command on console!." );
+                logger.log( Level.WARNING, "> you can't use this command on console!." );
                 return true;
             }
 
@@ -84,6 +84,14 @@ public final class Core extends JavaPlugin {
         if (!homesFile.exists()) {
             saveHomesFile();
         }
+
+        new Updater(this, 100287).getVersion(version -> {
+            if (this.getDescription().getVersion().equals(version)) {
+                logger.log(Level.INFO,"[SetHome] >  There is not a new update available.");
+            } else {
+                logger.log(Level.WARNING,"[SetHome] >  There is a new update available.");
+            }
+        });
     }
 
     public void saveHomesFile() {
