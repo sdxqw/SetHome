@@ -1,5 +1,5 @@
 name: SetHome
-version: '0.1'
+version: '0.2'
 main: org.xnotro.sethome.Core
 authors: [ xnotro ]
 description: Allows you to set home anywhere and the world to get back to that same location!
