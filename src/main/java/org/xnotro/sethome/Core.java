@@ -85,6 +85,8 @@ public final class Core extends JavaPlugin {
             saveHomesFile();
         }
 
+        Metrics metrics = new Metrics( this , 14466);
+
         new Updater(this, 100287).getVersion(version -> {
             if (this.getDescription().getVersion().equals(version)) {
                 logger.log(Level.INFO,">  There is not a new update available.");
