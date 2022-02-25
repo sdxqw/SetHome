@@ -21,6 +21,7 @@ public final class Core extends JavaPlugin {
     private final FileConfiguration config;
     private final SetHomeUtils utils;
 
+
     public Core() {
         homesYaml = YamlConfiguration.loadConfiguration( homesFile );
         config = getConfig();
@@ -29,6 +30,9 @@ public final class Core extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        String prefix = config.getString( "prefix" );
+
         if(command.getName().equalsIgnoreCase( "sethome" )) {
             if (!(sender instanceof Player)) {
                 logger.log( Level.WARNING, "> you can't use this command on console!." );
@@ -53,7 +57,7 @@ public final class Core extends JavaPlugin {
             if (args.length == 0) {
                 if (utils.homeIsNull( player )) {
                     String noHomeSetted = config.getString( "noHomeSetted" );
-                    player.sendMessage( ChatColor.translateAlternateColorCodes( '&', noHomeSetted ) );
+                    player.sendMessage( ChatColor.translateAlternateColorCodes( '&', prefix + " " + noHomeSetted ) );
                 } else {
                     sendPlayerToHome( player );
                 }
@@ -105,14 +109,16 @@ public final class Core extends JavaPlugin {
     }
 
     void setPlayerHome(Player player) {
+        String prefix = config.getString( "prefix" );
         utils.setHome( player );
         String setHomeMsg = config.getString( "setHomeMessage").replace("%player%", player.getDisplayName() );
-        player.sendMessage( ChatColor.translateAlternateColorCodes( '&', setHomeMsg) );
+        player.sendMessage( ChatColor.translateAlternateColorCodes( '&', prefix + " " +setHomeMsg) );
     }
 
     void sendPlayerToHome(Player player) {
+        String prefix = config.getString( "prefix" );
         utils.sendHome( player );
         String sendHomeMsg = config.getString( "teleportMessage").replace("%player%", player.getDisplayName() );
-        player.sendMessage(ChatColor.translateAlternateColorCodes( '&', sendHomeMsg) );
+        player.sendMessage(ChatColor.translateAlternateColorCodes( '&', prefix + " " + sendHomeMsg) );
     }
 }
