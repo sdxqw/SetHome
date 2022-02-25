@@ -91,7 +91,7 @@ public final class Core extends JavaPlugin {
             if (this.getDescription().getVersion().equals(version)) {
                 logger.log(Level.INFO,">  There is not a new update available.");
             } else {
-                logger.log(Level.WARNING,">  There is a new update available. Here: www.spigotmc.org/resources/☄%EF%B8%8F-sethome-☄%EF%B8%8F-1-8-to-1-18.100287/updates");
+                logger.log(Level.WARNING,">  There is a new update available. Here: https://www.spigotmc.org/resources/☄%EF%B8%8F-sethome-☄%EF%B8%8F-1-8-to-1-18.100287/updates");
             }
         });
     }
