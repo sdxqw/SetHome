@@ -1,7 +1,6 @@
 prefix: "&7[&aSetHome&7] &r >"
 noHomeSetted: "&aYou must first use /sethome."
-sendingPlayerToHome: "&aSending &e%player% &ato home."
-setHomeMessage: '&aYou now have a new home, &6%player%&a!'
-teleportMessage: '&aYou have been teleported to your home, &6%player%&a!'
+setHomeMessage: '&6%player% &aYou now have created a new home!'
+teleportMessage: '&6%player% &aYou have been teleported to your home!'
 
 

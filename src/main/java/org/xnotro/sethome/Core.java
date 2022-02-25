@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@SuppressWarnings("NullableProblems")
 public final class Core extends JavaPlugin {
 
     Logger logger = getLogger();
@@ -57,8 +56,6 @@ public final class Core extends JavaPlugin {
                     player.sendMessage( ChatColor.translateAlternateColorCodes( '&', noHomeSetted ) );
                 } else {
                     sendPlayerToHome( player );
-                    String sendingPlayerToHome = config.getString( "sendingPlayerToHome" ).replace( "%player%", player.getDisplayName() );
-                    player.sendMessage( ChatColor.translateAlternateColorCodes( '&', sendingPlayerToHome ) );
                 }
             }
         }
