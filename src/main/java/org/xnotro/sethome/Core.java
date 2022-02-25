@@ -69,7 +69,7 @@ public final class Core extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        logger.log( Level.INFO,"[SetHome] > plugin enabled." );
+        logger.log( Level.INFO,"> plugin enabled." );
         getCommand( "sethome" ).setExecutor( this );
         getCommand( "home" ).setExecutor( this );
         config.options().copyDefaults(true);
@@ -87,9 +87,9 @@ public final class Core extends JavaPlugin {
 
         new Updater(this, 100287).getVersion(version -> {
             if (this.getDescription().getVersion().equals(version)) {
-                logger.log(Level.INFO,"[SetHome] >  There is not a new update available.");
+                logger.log(Level.INFO,">  There is not a new update available.");
             } else {
-                logger.log(Level.WARNING,"[SetHome] >  There is a new update available.");
+                logger.log(Level.WARNING,">  There is a new update available. Here: www.spigotmc.org/resources/☄%EF%B8%8F-sethome-☄%EF%B8%8F-1-8-to-1-18.100287/updates");
             }
         });
     }
