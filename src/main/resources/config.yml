@@ -2,5 +2,5 @@ prefix: "&7[&aSetHome&7] &r >"
 noHomeSetted: "&aYou must first use /sethome."
 setHomeMessage: '&6%player% &aYou now have created a new home!'
 teleportMessage: '&6%player% &aYou have been teleported to your home!'
-
-
+teleportToHomeDelay: 5 #set 0 for no delay lol
+teleportToHomeDelayMessage: '&6%player% &ayou will be teleported to your homer after &e%delay%s' # remove %delay% if you dont need delay

@@ -7,6 +7,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitScheduler;
 
 import java.io.File;
 import java.io.IOException;
@@ -58,7 +59,19 @@ public final class Core extends JavaPlugin {
                     String noHomeSetted = config.getString( "noHomeSetted" );
                     player.sendMessage( ChatColor.translateAlternateColorCodes( '&', prefix + " " + noHomeSetted ) );
                 } else {
-                    sendPlayerToHome( player );
+                    String teleportToHomeDelayString = this.config.getString("teleportToHomeDelay");
+                    int teleportToHomeDelay = Integer.parseInt(teleportToHomeDelayString);
+                    if(teleportToHomeDelay == 0) {
+                        sendPlayerToHome( player );
+                        return false;
+                    }
+
+                    if(teleportToHomeDelay > 0) {
+                        String teleportDelayMsg = config.getString( "teleportToHomeDelayMessage").replace("%delay%", teleportToHomeDelayString ).replace( "%player%", player.getDisplayName());
+                        player.sendMessage( ChatColor.translateAlternateColorCodes( '&', prefix + " " +teleportDelayMsg) );
+                        BukkitScheduler scheduler = getServer().getScheduler();
+                        scheduler.scheduleSyncDelayedTask( this, () -> sendPlayerToHome( player ), 20L * (long)teleportToHomeDelay);
+                    }
                 }
             }
         }
